@@ -1,3 +1,9 @@
+/*define a singular button style with id overriding general button style*/
+#button_four {
+  -fx-background-color: blue;
+  -fx-text-fill: white;
+}
+/*general button style*/
 .button {
   -fx-background-color: green;
   -fx-text-fill: white;
