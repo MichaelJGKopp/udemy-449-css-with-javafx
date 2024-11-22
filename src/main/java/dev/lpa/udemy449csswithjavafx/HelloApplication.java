@@ -16,8 +16,8 @@ public class HelloApplication extends Application {
 //    setUserAgentStylesheet(STYLESHEET_CASPIAN);
     setUserAgentStylesheet(STYLESHEET_MODENA);
     Scene scene = new Scene(fxmlLoader.load(), 600, 275);
-    scene.getStylesheets().add(HelloApplication.class.getResource("modena-dark.css")
-        .toExternalForm());
+//    scene.getStylesheets().add(HelloApplication.class.getResource("modena-dark.css")
+//        .toExternalForm());
     stage.setTitle("Hello!");
     stage.setScene(scene);
     stage.show();
