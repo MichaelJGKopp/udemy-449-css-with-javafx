@@ -40,9 +40,16 @@ public class HelloController {
 
   @FXML
   public void handleClick() {
-//    FileChooser chooser = new FileChooser();  // for files not directories
-    DirectoryChooser chooser = new DirectoryChooser();
-    File file = chooser.showDialog(gridPane.getScene().getWindow());  // set parent
+    FileChooser chooser = new FileChooser();  // for files not directories
+    chooser.setTitle("Save Application File");
+    chooser.getExtensionFilters().addAll(
+        new FileChooser.ExtensionFilter("Text", "*.txt"),
+        new FileChooser.ExtensionFilter("PDF", "*.pdf")
+    );
+
+//    DirectoryChooser chooser = new DirectoryChooser();
+//    File file = chooser.showDialog(gridPane.getScene().getWindow());  // set parent
+    File file = chooser.showSaveDialog(gridPane.getScene().getWindow());  // set parent
     if(file != null) {
       System.out.println(file.getPath());
     } else {
