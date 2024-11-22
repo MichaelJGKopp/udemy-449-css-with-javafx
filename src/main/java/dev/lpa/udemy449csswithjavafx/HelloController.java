@@ -1,6 +1,7 @@
 package dev.lpa.udemy449csswithjavafx;
 
 import java.io.File;
+import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -44,14 +45,21 @@ public class HelloController {
     chooser.setTitle("Save Application File");
     chooser.getExtensionFilters().addAll(
         new FileChooser.ExtensionFilter("Text", "*.txt"),
-        new FileChooser.ExtensionFilter("PDF", "*.pdf")
+        new FileChooser.ExtensionFilter("Zip", "*.zip"),
+        new FileChooser.ExtensionFilter("PDF", "*.pdf"),
+        new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png", "*.gif"),
+        new FileChooser.ExtensionFilter("All Files", "*.*")
     );
 
 //    DirectoryChooser chooser = new DirectoryChooser();
 //    File file = chooser.showDialog(gridPane.getScene().getWindow());  // set parent
-    File file = chooser.showSaveDialog(gridPane.getScene().getWindow());  // set parent
+//    File file = chooser.showOpenDialog(gridPane.getScene().getWindow());  // set parent
+    List<File> file = chooser.showOpenMultipleDialog(gridPane.getScene().getWindow());  // set parent
     if(file != null) {
-      System.out.println(file.getPath());
+      for(int i = 0; i < file.size(); i++) {
+        System.out.println(file.get(i));
+      }
+//      System.out.println(file.getPath());
     } else {
       System.out.println("Chooser was cancelled.");
     }
