@@ -1,6 +1,10 @@
 package dev.lpa.udemy449csswithjavafx;
 
+import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -62,6 +66,19 @@ public class HelloController {
 //      System.out.println(file.getPath());
     } else {
       System.out.println("Chooser was cancelled.");
+    }
+  }
+
+  @FXML
+  public void handleLinkClick() {
+    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+      try {
+        Desktop.getDesktop().browse(new URI("http://www.javafx.com"));
+      } catch (IOException | URISyntaxException e) {
+        e.printStackTrace();
+      }
+    } else {
+      System.err.println("Desktop or browse action is not supported on this platform.");
     }
   }
 }
