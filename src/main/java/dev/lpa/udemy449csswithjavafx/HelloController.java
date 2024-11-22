@@ -12,8 +12,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.GridPane;
+import javafx.scene.web.WebEngine;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
+import javafx.scene.web.WebView;
 
 public class HelloController {
 
@@ -25,6 +27,9 @@ public class HelloController {
 
   @FXML
   private GridPane gridPane;
+
+  @FXML
+  private WebView webView;
 
   @FXML
   protected void initialize() {
@@ -71,14 +76,17 @@ public class HelloController {
 
   @FXML
   public void handleLinkClick() {
-    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-      try {
-        Desktop.getDesktop().browse(new URI("http://www.javafx.com"));
-      } catch (IOException | URISyntaxException e) {
-        e.printStackTrace();
-      }
-    } else {
-      System.err.println("Desktop or browse action is not supported on this platform.");
-    }
+//    if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+//      try {
+//        Desktop.getDesktop().browse(new URI("http://www.javafx.com"));
+//      } catch (IOException | URISyntaxException e) {
+//        e.printStackTrace();
+//      }
+//    } else {
+//      System.err.println("Desktop or browse action is not supported on this platform.");
+//    }
+    System.out.println("Trying to load page");
+    WebEngine engine = webView.getEngine();
+    engine.load("https://www.example.com");
   }
 }
